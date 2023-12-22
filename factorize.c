@@ -4,17 +4,38 @@
  *@n: the number
  *Return: void
  */
-void factorize(int n)
+void factorize(unsigned int n)
 {
-	int p, q;
+	unsigned int i;
+	unsigned int secondFactor = 0;
 
-	for (p = 2; p <= n / 2; p++)
+	printf("%u=", n);
+	/*Check if 2 is a factor*/
+	while (n % 2 == 0)
 	{
-		if (n % p == 0)
+		if (secondFactor == 0)
+			secondFactor = 2;
+		else
+			break;
+		n = n / 2;
+	}
+	/*Check odd factors*/
+	for (i = 3; i * i <= n; i += 2)
+	{
+		while (n % i == 0)
 		{
-			q = n / p;
-			printf("%d=%d*%d\n", n, p, q);
-			return;
+			if (secondFactor == 0)
+				secondFactor = i;
+			else
+				break;
+			n = n / i;
 		}
 	}
+	/*If n is still greater than 1, it is a prime factor*/
+	if (n > 1)
+	{
+		if (secondFactor == 0)
+			secondFactor = n;
+	}
+	printf("%u*%u\n", n, secondFactor);
 }

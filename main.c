@@ -22,7 +22,7 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error openning the file %s\n", av[1]);
 		return (1);
 	}
-	while (fgets(buffer,sizeof(buffer), file) != NULL)
+	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
 		number = atoi(buffer);
 		factorize(number);

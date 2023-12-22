@@ -6,5 +6,5 @@
 #include <string.h>
 #include <stdlib.h>
 /*---------prototype------*/
-void factorize(int n);
+void factorize(unsigned int n);
 #endif
